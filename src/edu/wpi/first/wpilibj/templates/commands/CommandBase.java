@@ -2,10 +2,8 @@
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.templates.OI;
-import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
-import edu.wpi.first.wpilibj.templates.subsystems.SpeedControllerPID;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

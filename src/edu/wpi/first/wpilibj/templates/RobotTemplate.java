@@ -8,6 +8,7 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Auto;
@@ -26,7 +27,7 @@ public class RobotTemplate extends IterativeRobot {
 
     Command autonomousCommand;
     Command teleopCommand;
-
+    CommandGroup test;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.

@@ -12,7 +12,9 @@ public class SpeedControllerPID extends PIDSubsystem {
 
     Victor driveMotors[] = new Victor[3];
 
-    Encoder enc;
+    public Encoder enc;
+    
+    int tolerance = 5;
 
     // Initialize your subsystem here
     public SpeedControllerPID(int a, int b, int[] arr) {
@@ -25,7 +27,7 @@ public class SpeedControllerPID extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-        setAbsoluteTolerance(5);
+        setAbsoluteTolerance(tolerance);
         enc.start();
     }
 
