@@ -14,13 +14,13 @@ public class DriveForward extends CommandBase {
         // eg. requires(chassis);
         this.a = a;
         requires(a);
-        a.enc.start();
-        a.enc.reset();
         goal = dist * meterToEncoder;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        a.enc.start();
+        a.enc.reset();
         a.setSetpoint(goal);
         a.enable();
     }
@@ -36,6 +36,7 @@ public class DriveForward extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        a.disable();
         a.enc.stop();
     }
 

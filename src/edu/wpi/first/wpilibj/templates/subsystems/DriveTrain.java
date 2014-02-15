@@ -32,7 +32,7 @@ public class DriveTrain extends ScalableSubsystem {
 
     //command, get distance of 2 motors if one is higher lower the speed
     public void drive(double l, double r) {
-        left.drive(l * leftScale);
+        left.drive(-l * leftScale);
         right.drive(r * rightScale);
     }
 

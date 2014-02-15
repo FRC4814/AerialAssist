@@ -22,4 +22,12 @@ public class Attack3Joystick extends Joystick {
         return (getZ()-1)/2;
     }
     
+    public double getDeadY() {
+        double y = getY();
+        if(Math.abs(y) > 0.2) {
+            return y;
+        }
+        return 0;
+    }
+    
 }

@@ -16,7 +16,7 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        driveTrain.drive(-oi.leftJoystick.getY(), -oi.rightJoystick.getY());
+        driveTrain.drive(-oi.leftJoystick.getDeadY(), -oi.rightJoystick.getDeadY());
         SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());
         SmartDashboard.putNumber("RightEncoder", driveTrain.right.getD());
     }

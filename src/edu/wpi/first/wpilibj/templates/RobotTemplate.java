@@ -35,17 +35,17 @@ public class RobotTemplate extends IterativeRobot {
         // instantiate the command used for the autonomous period
         // Initialize all subsystems
         CommandBase.init();
-        try {
+        /*try {
             // schedule the autonomous command (example)
             CommandBase.raspberryPi.connect();
         } catch (IOException ex) {
             ex.printStackTrace();
-        }
+        }*/
         autonomousCommand = new Auto();
     }
 
     public void autonomousInit() {
-        CommandBase.raspberryPi.start();
+        //CommandBase.raspberryPi.start();
         autonomousCommand.start();
     }
 
@@ -60,7 +60,7 @@ public class RobotTemplate extends IterativeRobot {
         autonomousCommand.cancel();
         teleopCommand = new Drive();
         teleopCommand.start();
-        CommandBase.raspberryPi.stop();
+        //CommandBase.raspberryPi.stop();
     }
 
     /**

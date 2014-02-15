@@ -10,7 +10,7 @@ public class SpeedControllerPID extends PIDSubsystem {
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
 
-    Victor driveMotors[] = new Victor[3];
+    Victor driveMotors[] = new Victor[2];
 
     public Encoder enc;
     
@@ -20,7 +20,7 @@ public class SpeedControllerPID extends PIDSubsystem {
     public SpeedControllerPID(int a, int b, int[] arr) {
         super("SpeedControllerPID", Kp, Ki, Kd);
         enc = new Encoder(a, b);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             driveMotors[i] = new Victor(arr[i]);
         }
         // Use these to get going:
@@ -36,7 +36,6 @@ public class SpeedControllerPID extends PIDSubsystem {
     public void drive(double speed) {
         driveMotors[0].set(speed);
         driveMotors[1].set(speed);
-        driveMotors[2].set(speed);
     }
 
     public double getD() {

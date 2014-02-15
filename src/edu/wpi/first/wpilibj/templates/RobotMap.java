@@ -20,9 +20,10 @@ public class RobotMap {
     public static final int rightJoystickPort = 2;
     public static final int commandJoystickPort = 3;
     
-    public static final int driveMotorPortsLeft[] = {1, 2, 3};
-    public static final int driveMotorPortsRight[] = {4, 5, 6};
-    public static final int feederMotorPorts[] = {7, 8};
+    public static final int driveMotorPortsLeft[] = {5, 6};
+    public static final int driveMotorPortsRight[] = {1, 2};
+    public static final int shooterPorts[] = {3, 4, 7, 8};
+    public static final int feederMotorPort = 9;
 
     public static final int encoderPortR1 = 1;
     public static final int encoderPortR2 = 2;

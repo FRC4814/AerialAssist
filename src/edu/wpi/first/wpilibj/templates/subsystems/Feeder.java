@@ -7,16 +7,14 @@ public class Feeder extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    Victor motor1, motor2;
+    Victor motor;
     
     public Feeder() {
-        motor1 = new Victor(RobotMap.feederMotorPorts[0]);
-        motor2 = new Victor(RobotMap.feederMotorPorts[1]);
+        motor = new Victor(RobotMap.feederMotorPort);
     }
     
     public void set(double s) {
-        motor1.set(s);
-        motor2.set(s);
+        motor.set(s);
     }
 
     public void initDefaultCommand() {
