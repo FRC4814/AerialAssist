@@ -1,46 +1,32 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class Auto extends CommandBase {
+public class Auto extends CommandGroup {
 
     public Auto() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(driveTrain);
-        requires(raspberryPi);
-    }
+        // Add Commands here:
+        // e.g. addSequential(new Command1());
+        //      addSequential(new Command2());
+        // these will run in order.
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+        // To run multiple commands at the same time,
+        // use addParallel()
+        // e.g. addParallel(new Command1());
+        //      addSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        if (raspberryPi.getX() + RaspberryPi.xOff < 300) {
-            driveTrain.drive(-1, 1);
-            RaspberryPi.xOff++;
-        } else if (raspberryPi.getX() + RaspberryPi.xOff > 340) {
-            driveTrain.drive(1, -1);
-            RaspberryPi.xOff--;
-        } else {
-            driveTrain.drive(0, 0);
-        }
-    }
-
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
-
-    // Called once after isFinished returns true
-    protected void end() {
-        driveTrain.drive(0, 0);
-        raspberryPi.stop();
-    }
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm.
+        addParallel(new StartFeeder());
+        addParallel(new DriveForward(5.0, CommandBase.driveTrain.left));
+        addSequential(new DriveForward(5.0, CommandBase.driveTrain.right));
+        addSequential(new Wait(1.0));
+        addParallel(new StopFeeder());
+        addParallel(new DriveForward(-5.0, CommandBase.driveTrain.left));
+        addSequential(new DriveForward(-5.0, CommandBase.driveTrain.right));
     }
 }

@@ -25,9 +25,8 @@ import java.io.IOException;
  */
 public class RobotTemplate extends IterativeRobot {
 
-    Command autonomousCommand;
+    CommandGroup autonomousCommand;
     Command teleopCommand;
-    CommandGroup test;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.

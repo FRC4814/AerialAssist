@@ -1,42 +1,31 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.subsystems.SpeedControllerPID;
 
+public class StartFeeder extends CommandBase {
 
-public class DriveForward extends CommandBase {
-
-    double goal;
-    SpeedControllerPID a;
-    final static double meterToEncoder = 1.0;
-    
-    public DriveForward(double dist, SpeedControllerPID a) {
+    public StartFeeder() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        this.a = a;
-        requires(a);
-        a.enc.start();
-        a.enc.reset();
-        goal = dist * meterToEncoder;
+        requires(feeder);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        a.setSetpoint(goal);
-        a.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        feeder.set(1d);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return a.onTarget();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        a.enc.stop();
+        feeder.set(0);
     }
 
     // Called when another command which requires one or more of the same

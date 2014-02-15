@@ -1,8 +1,10 @@
  package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.templates.subsystems.Feeder;
 import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
 
 /**
@@ -17,6 +19,7 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static DriveTrain driveTrain;
     public static RaspberryPi raspberryPi;
+    public static Feeder feeder;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -27,9 +30,16 @@ public abstract class CommandBase extends Command {
         oi = new OI();
         driveTrain = new DriveTrain();
         raspberryPi = new RaspberryPi();
+        feeder = new Feeder();
         
         // Show what command your subsystem is running on the SmartDashboard
         //SmartDashboard.putData(driveTrain);
+        SmartDashboard.putData("Start Feeder", new StartFeeder());
+        SmartDashboard.putData("Stop Feeder", new StopFeeder());
+        SmartDashboard.putData("Auto", new Auto());
+        SmartDashboard.putData(driveTrain.left);
+        SmartDashboard.putData(driveTrain.right);
+        SmartDashboard.putData(feeder);
     }
 
     public CommandBase(String name) {

@@ -16,29 +16,36 @@ import edu.wpi.first.wpilibj.tools.ScalableSubsystem;
  *
  * @author Patrick
  */
-public class DriveTrain extends ScalableSubsystem{
-    
+public class DriveTrain extends ScalableSubsystem {
+
+    double p = 1.0;
+    double i = 0.0;
+    double d = 0.0;
+
     public DriveTrain() {
         left = new SpeedControllerPID(RobotMap.encoderPortL1, RobotMap.encoderPortL2, RobotMap.driveMotorPortsLeft);
         right = new SpeedControllerPID(RobotMap.encoderPortR1, RobotMap.encoderPortR2, RobotMap.driveMotorPortsRight);
-        error = 0d;
+        left.getPIDController().setPID(p, i, d);
+        right.getPIDController().setPID(p, i, d);
+        error = 0.0;
     }
+
     //command, get distance of 2 motors if one is higher lower the speed
     public void drive(double l, double r) {
-        left.drive(l*leftScale);
-        right.drive(r*rightScale);
+        left.drive(l * leftScale);
+        right.drive(r * rightScale);
     }
 
     protected void initDefaultCommand() {
         setDefaultCommand(new Drive());
     }
-    
+
     public void test() {
         double leftTemp = leftScale;
         double rightTemp = rightScale;
-        CommandGroup test = new DriveTest(1d);
+        CommandGroup test = new DriveTest(1.0);
         test.start();
-        while(test.isRunning()) {
+        while (test.isRunning()) {
             Timer.delay(0.01);
         }
         if (leftScale != leftTemp || rightScale != rightTemp) {

@@ -1,42 +1,43 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.subsystems.SpeedControllerPID;
+import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
 
+public class TurnToFace extends CommandBase {
 
-public class DriveForward extends CommandBase {
-
-    double goal;
-    SpeedControllerPID a;
-    final static double meterToEncoder = 1.0;
-    
-    public DriveForward(double dist, SpeedControllerPID a) {
+    public TurnToFace() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        this.a = a;
-        requires(a);
-        a.enc.start();
-        a.enc.reset();
-        goal = dist * meterToEncoder;
+        requires(driveTrain);
+        requires(raspberryPi);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        a.setSetpoint(goal);
-        a.enable();
+        this.setInterruptible(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if (raspberryPi.getX() + RaspberryPi.xOff < 300) {
+            driveTrain.drive(-1, 1);
+            RaspberryPi.xOff++;
+        } else if (raspberryPi.getX() + RaspberryPi.xOff > 340) {
+            driveTrain.drive(1, -1);
+            RaspberryPi.xOff--;
+        } else {
+            driveTrain.drive(0, 0);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return a.onTarget();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        a.enc.stop();
+        driveTrain.drive(0, 0);
+        raspberryPi.stop();
     }
 
     // Called when another command which requires one or more of the same

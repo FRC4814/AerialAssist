@@ -1,5 +1,7 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class Drive extends CommandBase {
 
     public Drive() {
@@ -15,6 +17,8 @@ public class Drive extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         driveTrain.drive(-oi.leftJoystick.getY(), -oi.rightJoystick.getY());
+        SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());
+        SmartDashboard.putNumber("RightEncoder", driveTrain.right.getD());
     }
 
     // Make this return true when this Command no longer needs to run execute()

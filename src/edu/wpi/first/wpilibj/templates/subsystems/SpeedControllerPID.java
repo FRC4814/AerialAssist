@@ -28,11 +28,9 @@ public class SpeedControllerPID extends PIDSubsystem {
         //                  to
         // enable() - Enables the PID controller.
         setAbsoluteTolerance(tolerance);
-        enc.start();
     }
 
     public void initDefaultCommand() {
-        //setDefaultCommand(new Drive());
     }
 
     public void drive(double speed) {

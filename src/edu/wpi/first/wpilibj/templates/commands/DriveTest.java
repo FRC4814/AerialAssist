@@ -22,7 +22,7 @@ public class DriveTest extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         addParallel(new EqualizeEncoders(CommandBase.driveTrain, timer));
-        addSequential(new DriveFor(1d, timer));
-        addSequential(new DriveFor(-1d, timer));
+        addSequential(new DriveFor(0.5, timer));
+        addSequential(new DriveFor(0.5, timer));
     }
 }
