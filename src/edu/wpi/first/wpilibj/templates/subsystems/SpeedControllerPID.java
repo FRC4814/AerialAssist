@@ -9,17 +9,19 @@ public class SpeedControllerPID extends PIDSubsystem {
     private static final double Kp = 1.0;
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
+    
+    final static double meterToEncoder = 14600;
 
     Victor driveMotors[] = new Victor[2];
 
     public Encoder enc;
-    
+    int direction = 1;
     int tolerance = 5;
 
     // Initialize your subsystem here
-    public SpeedControllerPID(int a, int b, int[] arr) {
-        super("SpeedControllerPID", Kp, Ki, Kd);
-        enc = new Encoder(a, b);
+    public SpeedControllerPID(int a, int b, int[] arr, boolean reverse, String name) {
+        super(name, Kp, Ki, Kd);
+        enc = new Encoder(a, b, reverse);
         for (int i = 0; i < 2; i++) {
             driveMotors[i] = new Victor(arr[i]);
         }
@@ -28,18 +30,22 @@ public class SpeedControllerPID extends PIDSubsystem {
         //                  to
         // enable() - Enables the PID controller.
         setAbsoluteTolerance(tolerance);
+        if(reverse) {
+            direction = -1;
+        }
     }
 
     public void initDefaultCommand() {
     }
 
     public void drive(double speed) {
+        speed *= direction;
         driveMotors[0].set(speed);
         driveMotors[1].set(speed);
     }
 
     public double getD() {
-        return enc.getDistance();
+        return enc.getDistance()/meterToEncoder;
     }
 
     protected double returnPIDInput() {

@@ -15,7 +15,7 @@ public class StartFeeder extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        feeder.set(-1.0);
+        feeder.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -25,7 +25,7 @@ public class StartFeeder extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        feeder.set(0);
+        feeder.stop();
     }
 
     // Called when another command which requires one or more of the same

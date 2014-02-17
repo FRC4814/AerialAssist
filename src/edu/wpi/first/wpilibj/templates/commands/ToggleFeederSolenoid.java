@@ -1,16 +1,16 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-public class StopFeeder extends CommandBase {
+public class ToggleFeederSolenoid extends CommandBase {
 
-    public StopFeeder() {
+    public ToggleFeederSolenoid() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(feeder);
+        requires(feederSolenoid);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        feeder.stop();
+        feederSolenoid.toggle();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Auto;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.Drive;
-import java.io.IOException;
 
 /**
  * The VM is configured to automatically run this class, and to call the

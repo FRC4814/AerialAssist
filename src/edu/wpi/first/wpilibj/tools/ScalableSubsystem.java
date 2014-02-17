@@ -21,11 +21,9 @@ public abstract class ScalableSubsystem extends Subsystem {
     
     public void slowLeft() {
         leftScale -= 0.01;
-        SmartDashboard.putNumber("DriveTrainLeftScale", leftScale);
     }
     public void slowRight() {
         rightScale -= 0.01;
-        SmartDashboard.putNumber("DriveTrainRightScale", rightScale);
     }
     public void reset() {
         left.enc.reset();

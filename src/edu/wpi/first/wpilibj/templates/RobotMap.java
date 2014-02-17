@@ -24,10 +24,12 @@ public class RobotMap {
     public static final int driveMotorPortsRight[] = {1, 2};
     public static final int shooterPorts[] = {3, 4, 7, 8};
     public static final int feederMotorPort = 9;
+    
+    public static final int compressorPorts[] = {5, 1};
+    public static final int driveSolenoidPorts[] = {1, 2};
+    public static final int feederSolenoidPorts[] = {3, 4};
 
-    public static final int encoderPortR1 = 1;
-    public static final int encoderPortR2 = 2;
-    public static final int encoderPortL1 = 3;
-    public static final int encoderPortL2 = 4;
+    public static final int encoderPortsL[] = {3, 4};
+    public static final int encoderPortsR[] = {1, 2};
     
 }

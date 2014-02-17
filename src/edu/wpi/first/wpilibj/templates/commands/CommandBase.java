@@ -3,8 +3,11 @@
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.OI;
+import edu.wpi.first.wpilibj.templates.subsystems.Compressor;
+import edu.wpi.first.wpilibj.templates.subsystems.DriveSolenoid;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.subsystems.Feeder;
+import edu.wpi.first.wpilibj.templates.subsystems.FeederSolenoid;
 import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 
@@ -22,6 +25,9 @@ public abstract class CommandBase extends Command {
     public static RaspberryPi raspberryPi;
     public static Feeder feeder;
     public static Shooter shooter;
+    public static DriveSolenoid driveSolenoid;
+    public static FeederSolenoid feederSolenoid;
+    public static Compressor compressor;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -34,6 +40,9 @@ public abstract class CommandBase extends Command {
         raspberryPi = new RaspberryPi();
         feeder = new Feeder();
         shooter = new Shooter();
+        //driveSolenoid = new DriveSolenoid();
+        //compressor = new Compressor();
+        //feederSolenoid = new FeederSolenoid();
         
         // Show what command your subsystem is running on the SmartDashboard
         //SmartDashboard.putData(driveTrain);
@@ -42,9 +51,8 @@ public abstract class CommandBase extends Command {
         SmartDashboard.putData("Auto", new Auto());
         SmartDashboard.putData("Encoders On", new DriveEncodersOn());
         SmartDashboard.putData("Reset Encoders", new DriveEncodersReset());
-        SmartDashboard.putData(driveTrain.left);
-        SmartDashboard.putData(driveTrain.right);
-        SmartDashboard.putData(feeder);
+        SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());
+        SmartDashboard.putNumber("RightEncoder", driveTrain.right.getD());
     }
 
     public CommandBase(String name) {

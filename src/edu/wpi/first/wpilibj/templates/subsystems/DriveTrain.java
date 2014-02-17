@@ -7,6 +7,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.commands.Drive;
 import edu.wpi.first.wpilibj.templates.commands.DriveTest;
@@ -23,16 +24,18 @@ public class DriveTrain extends ScalableSubsystem {
     double d = 0.0;
 
     public DriveTrain() {
-        left = new SpeedControllerPID(RobotMap.encoderPortL1, RobotMap.encoderPortL2, RobotMap.driveMotorPortsLeft);
-        right = new SpeedControllerPID(RobotMap.encoderPortR1, RobotMap.encoderPortR2, RobotMap.driveMotorPortsRight);
+        left = new SpeedControllerPID(RobotMap.encoderPortsL[0], RobotMap.encoderPortsL[1], RobotMap.driveMotorPortsLeft, true, "LeftDrive");
+        right = new SpeedControllerPID(RobotMap.encoderPortsR[0], RobotMap.encoderPortsR[1], RobotMap.driveMotorPortsRight, false, "RightDrive");
         left.getPIDController().setPID(p, i, d);
         right.getPIDController().setPID(p, i, d);
         error = 0.0;
+        SmartDashboard.putNumber("DriveTrainLeftScale", leftScale);
+        SmartDashboard.putNumber("DriveTrainRightScale", rightScale);
     }
 
     //command, get distance of 2 motors if one is higher lower the speed
     public void drive(double l, double r) {
-        left.drive(-l * leftScale);
+        left.drive(l * leftScale);
         right.drive(r * rightScale);
     }
 
