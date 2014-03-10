@@ -22,7 +22,8 @@ public class RobotMap {
     
     public static final int driveMotorPortsLeft[] = {5, 6};
     public static final int driveMotorPortsRight[] = {1, 2};
-    public static final int shooterPorts[] = {3, 4, 7, 8};
+    public static final int shooterMotorPortsLeft[] = {3, 4};
+    public static final int shooterMotorPortsRight[] = {7, 8};
     public static final int feederMotorPort = 9;
     
     public static final int compressorPorts[] = {5, 1};
@@ -31,5 +32,7 @@ public class RobotMap {
 
     public static final int encoderPortsL[] = {3, 4};
     public static final int encoderPortsR[] = {1, 2};
+    public static final int shooterEncoderPortsL[] = {9, 10};
+    public static final int shooterEncoderPortsR[] = {7, 8};
     
 }

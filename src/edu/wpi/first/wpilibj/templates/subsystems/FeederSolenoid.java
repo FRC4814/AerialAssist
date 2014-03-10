@@ -12,6 +12,7 @@ public class FeederSolenoid extends Subsystem {
 
     public FeederSolenoid() {
         solenoid = new DoubleSolenoid(RobotMap.feederSolenoidPorts[0], RobotMap.feederSolenoidPorts[1]);
+        solenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
     private void setFwd() {

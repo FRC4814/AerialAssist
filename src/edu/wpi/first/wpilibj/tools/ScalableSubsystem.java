@@ -21,9 +21,11 @@ public abstract class ScalableSubsystem extends Subsystem {
     
     public void slowLeft() {
         leftScale -= 0.01;
+        SmartDashboard.putNumber(getName() + "Scale", leftScale);
     }
     public void slowRight() {
         rightScale -= 0.01;
+        SmartDashboard.putNumber(getName() + "Scale", rightScale);
     }
     public void reset() {
         left.enc.reset();

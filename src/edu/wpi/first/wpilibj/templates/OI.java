@@ -2,8 +2,13 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.templates.commands.ToggleDriveSolenoid;
+import edu.wpi.first.wpilibj.templates.commands.PassOut;
+import edu.wpi.first.wpilibj.templates.commands.SetDriveHighGear;
+import edu.wpi.first.wpilibj.templates.commands.SetDriveLowGear;
+import edu.wpi.first.wpilibj.templates.commands.Shoot;
+import edu.wpi.first.wpilibj.templates.commands.ToggleFeeder;
 import edu.wpi.first.wpilibj.templates.commands.ToggleFeederSolenoid;
+import edu.wpi.first.wpilibj.templates.commands.Turn;
 import edu.wpi.first.wpilibj.tools.Attack3Joystick;
 
 /**
@@ -39,11 +44,23 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     public Attack3Joystick leftJoystick = new Attack3Joystick(RobotMap.leftJoystickPort);
     public Attack3Joystick rightJoystick = new Attack3Joystick(RobotMap.rightJoystickPort);
-    Button driveSolenoidButton = new JoystickButton(rightJoystick, 2);
-    Button feederButton = new JoystickButton(rightJoystick, 3);
+    public Attack3Joystick commandJoystick = new Attack3Joystick(RobotMap.commandJoystickPort);
+    Button driveHighButton = new JoystickButton(rightJoystick, 1);
+    Button driveLowButton = new JoystickButton(leftJoystick, 1);
+    Button feederSolenoidButton = new JoystickButton(commandJoystick, 3);
+    Button feederButton = new JoystickButton(commandJoystick, 1);
+    Button shootButton = new JoystickButton(commandJoystick, 4);
+    Button passButton = new JoystickButton(commandJoystick, 5);
+    Button turnButton = new JoystickButton(rightJoystick, 2);
 
     public OI() {
-        //driveSolenoidButton.whenReleased(new ToggleDriveSolenoid());
-        //feederButton.whenReleased(new ToggleFeederSolenoid());
+        driveHighButton.whenReleased(new SetDriveHighGear());
+        driveLowButton.whenReleased(new SetDriveLowGear());
+        feederSolenoidButton.whenReleased(new ToggleFeederSolenoid());
+        feederButton.whenReleased(new ToggleFeeder());
+        shootButton.whenReleased(new Shoot());
+        shootButton.whenReleased(new PassOut());
+        turnButton.whenReleased(new Turn());
+        turnButton.whenPressed(new Turn());
     }
 }

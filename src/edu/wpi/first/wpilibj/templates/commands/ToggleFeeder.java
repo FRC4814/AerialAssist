@@ -1,6 +1,5 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-
 public class ToggleFeeder extends CommandBase {
 
     public ToggleFeeder() {
@@ -10,7 +9,7 @@ public class ToggleFeeder extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        feeder.toggle();
+        feeder.isSpinning = !feeder.isSpinning;
     }
 
     // Called repeatedly when this Command is scheduled to run

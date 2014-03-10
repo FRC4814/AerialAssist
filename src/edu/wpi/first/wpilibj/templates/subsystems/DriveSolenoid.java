@@ -9,24 +9,28 @@ public class DriveSolenoid extends Subsystem {
     // here. Call these from Commands.
 
     DoubleSolenoid solenoid;
+    boolean highGear = true;
 
     public DriveSolenoid() {
         solenoid = new DoubleSolenoid(RobotMap.driveSolenoidPorts[0], RobotMap.driveSolenoidPorts[1]);
-    }
-
-    private void setFwd() {
-        solenoid.set(DoubleSolenoid.Value.kForward);
-    }
-
-    private void setBkwd() {
         solenoid.set(DoubleSolenoid.Value.kReverse);
+    }
+
+    public void setLow() {
+        solenoid.set(DoubleSolenoid.Value.kForward);
+        highGear = false;
+    }
+
+    public void setHigh() {
+        solenoid.set(DoubleSolenoid.Value.kReverse);
+        highGear = true;
     }
 
     public void toggle() {
         if (solenoid.get() == DoubleSolenoid.Value.kForward) {
-            setBkwd();
+            setLow();
         } else if (solenoid.get() == DoubleSolenoid.Value.kReverse) {
-            setFwd();
+            setHigh();
         }
     }
 

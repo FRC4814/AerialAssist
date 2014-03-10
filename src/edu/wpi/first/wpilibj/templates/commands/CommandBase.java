@@ -3,11 +3,11 @@
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.OI;
-import edu.wpi.first.wpilibj.templates.subsystems.Compressor;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveSolenoid;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.subsystems.Feeder;
 import edu.wpi.first.wpilibj.templates.subsystems.FeederSolenoid;
+import edu.wpi.first.wpilibj.templates.subsystems.PurpleCompressor;
 import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 
@@ -27,7 +27,7 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter;
     public static DriveSolenoid driveSolenoid;
     public static FeederSolenoid feederSolenoid;
-    public static Compressor compressor;
+    public static PurpleCompressor compressor;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -35,24 +35,26 @@ public abstract class CommandBase extends Command {
         // which commands extend), subsystems are not guaranteed to be
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
-        oi = new OI();
         driveTrain = new DriveTrain();
-        raspberryPi = new RaspberryPi();
+        //raspberryPi = new RaspberryPi();
         feeder = new Feeder();
         shooter = new Shooter();
-        //driveSolenoid = new DriveSolenoid();
-        //compressor = new Compressor();
-        //feederSolenoid = new FeederSolenoid();
-        
+        compressor = new PurpleCompressor();
+        feederSolenoid = new FeederSolenoid();
+        driveSolenoid = new DriveSolenoid();
+        oi = new OI();
         // Show what command your subsystem is running on the SmartDashboard
         //SmartDashboard.putData(driveTrain);
-        SmartDashboard.putData("Start Feeder", new StartFeeder());
-        SmartDashboard.putData("Stop Feeder", new StopFeeder());
+        SmartDashboard.putData("Toggle Feeder", new ToggleFeeder());
+        SmartDashboard.putData("Manage Feeder", new ManageFeeder());
+        SmartDashboard.putData("Reverse Feeder", new ReverseFeeder());
         SmartDashboard.putData("Auto", new Auto());
         SmartDashboard.putData("Encoders On", new DriveEncodersOn());
         SmartDashboard.putData("Reset Encoders", new DriveEncodersReset());
         SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());
         SmartDashboard.putNumber("RightEncoder", driveTrain.right.getD());
+        SmartDashboard.putNumber("LeftDriveScale", driveTrain.leftScale);
+        SmartDashboard.putNumber("RightDriveScale", driveTrain.rightScale);
     }
 
     public CommandBase(String name) {

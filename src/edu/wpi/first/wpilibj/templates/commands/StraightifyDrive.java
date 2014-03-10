@@ -1,25 +1,38 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-public class StopFeeder extends CommandBase {
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-    public StopFeeder() {
+public class StraightifyDrive extends CommandBase {
+
+    public StraightifyDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(feeder);
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        feeder.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        double l = -oi.leftJoystick.getDeadY();
+        double r = -oi.rightJoystick.getDeadY();
+        if (l != 0.0) {
+            l /= l;
+        }
+        if (r != 0.0) {
+            r /= r;
+        }
+        driveTrain.drive(l, r);
+        //driveTrain.drive(-oi.leftJoystick.getY(), -oi.rightJoystick.getY());
+        SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());
+        SmartDashboard.putNumber("RightEncoder", driveTrain.right.getD());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

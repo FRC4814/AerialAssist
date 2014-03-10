@@ -1,31 +1,30 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 
-public class StartFeeder extends CommandBase {
+public class SetDriveHighGear extends CommandBase {
 
-    public StartFeeder() {
+    public SetDriveHighGear() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(feeder);
+        requires(driveSolenoid);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        driveSolenoid.setHigh();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        feeder.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        feeder.stop();
     }
 
     // Called when another command which requires one or more of the same
