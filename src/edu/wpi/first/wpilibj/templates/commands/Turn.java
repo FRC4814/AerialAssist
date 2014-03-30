@@ -10,7 +10,7 @@ public class Turn extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        driveTrain.turnBtnSwap();
+        driveTrain.turnBtn = true;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -24,10 +24,12 @@ public class Turn extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        driveTrain.turnBtn = false;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        driveTrain.turnBtn = false;
     }
 }

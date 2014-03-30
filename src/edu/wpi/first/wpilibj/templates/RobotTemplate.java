@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Auto;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import edu.wpi.first.wpilibj.templates.commands.Drive;
+import edu.wpi.first.wpilibj.templates.commands.UpdateSDB;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,6 +26,7 @@ public class RobotTemplate extends IterativeRobot {
 
     CommandGroup autonomousCommand;
     Command teleopCommand;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -33,6 +34,7 @@ public class RobotTemplate extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         // Initialize all subsystems
+        
         CommandBase.init();
         /*try {
             // schedule the autonomous command (example)
@@ -57,7 +59,7 @@ public class RobotTemplate extends IterativeRobot {
 
     public void teleopInit() {
         autonomousCommand.cancel();
-        teleopCommand = new Drive();
+        teleopCommand = new UpdateSDB();
         teleopCommand.start();
         //CommandBase.raspberryPi.stop();
     }

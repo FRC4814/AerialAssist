@@ -1,4 +1,4 @@
- package edu.wpi.first.wpilibj.templates.commands;
+package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -14,7 +14,9 @@ import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
+ * subsystem elsewhere in your code in your code use
+ * CommandBase.exampleSubsystem
+ *
  * @author Author
  */
 public abstract class CommandBase extends Command {
@@ -28,6 +30,8 @@ public abstract class CommandBase extends Command {
     public static DriveSolenoid driveSolenoid;
     public static FeederSolenoid feederSolenoid;
     public static PurpleCompressor compressor;
+    public boolean stopraisingshooter=false;
+    
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -44,17 +48,17 @@ public abstract class CommandBase extends Command {
         driveSolenoid = new DriveSolenoid();
         oi = new OI();
         // Show what command your subsystem is running on the SmartDashboard
-        //SmartDashboard.putData(driveTrain);
         SmartDashboard.putData("Toggle Feeder", new ToggleFeeder());
         SmartDashboard.putData("Manage Feeder", new ManageFeeder());
         SmartDashboard.putData("Reverse Feeder", new ReverseFeeder());
         SmartDashboard.putData("Auto", new Auto());
-        SmartDashboard.putData("Encoders On", new DriveEncodersOn());
-        SmartDashboard.putData("Reset Encoders", new DriveEncodersReset());
+        SmartDashboard.putBoolean("ShooterIsIn", true);
+        SmartDashboard.putData("EncodersReset", new EncodersReset());
         SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());
         SmartDashboard.putNumber("RightEncoder", driveTrain.right.getD());
         SmartDashboard.putNumber("LeftDriveScale", driveTrain.leftScale);
         SmartDashboard.putNumber("RightDriveScale", driveTrain.rightScale);
+        
     }
 
     public CommandBase(String name) {

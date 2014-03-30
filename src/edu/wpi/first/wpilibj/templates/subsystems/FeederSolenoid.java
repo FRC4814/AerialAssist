@@ -15,20 +15,24 @@ public class FeederSolenoid extends Subsystem {
         solenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
-    private void setFwd() {
+    private void setOut() {
         solenoid.set(DoubleSolenoid.Value.kForward);
     }
 
-    private void setBkwd() {
+    private void setIn() {
         solenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
     public void toggle() {
-        if (solenoid.get() == DoubleSolenoid.Value.kForward) {
-            setBkwd();
-        } else if (solenoid.get() == DoubleSolenoid.Value.kReverse) {
-            setFwd();
+        if (isSetIn()) {
+            setOut();
+        } else {
+            setIn();
         }
+    }
+    
+    public boolean isSetIn() {
+        return solenoid.get() == DoubleSolenoid.Value.kReverse;
     }
 
     public void initDefaultCommand() {

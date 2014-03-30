@@ -11,6 +11,7 @@ public class Feeder extends Subsystem {
 
     Victor motor;
     public boolean isSpinning = false;
+    public boolean isIn = true;
 
     public Feeder() {
         motor = new Victor(RobotMap.feederMotorPort);

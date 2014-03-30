@@ -5,11 +5,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.templates.commands.PassOut;
 import edu.wpi.first.wpilibj.templates.commands.SetDriveHighGear;
 import edu.wpi.first.wpilibj.templates.commands.SetDriveLowGear;
-import edu.wpi.first.wpilibj.templates.commands.Shoot;
 import edu.wpi.first.wpilibj.templates.commands.ToggleFeeder;
 import edu.wpi.first.wpilibj.templates.commands.ToggleFeederSolenoid;
 import edu.wpi.first.wpilibj.templates.commands.Turn;
 import edu.wpi.first.wpilibj.tools.Attack3Joystick;
+import edu.wpi.first.wpilibj.templates.commands.RaiseShooter;
+import edu.wpi.first.wpilibj.templates.commands.ResetShooter;
+import edu.wpi.first.wpilibj.templates.commands.ShooterAimForReset;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -49,18 +51,21 @@ public class OI {
     Button driveLowButton = new JoystickButton(leftJoystick, 1);
     Button feederSolenoidButton = new JoystickButton(commandJoystick, 3);
     Button feederButton = new JoystickButton(commandJoystick, 1);
-    Button shootButton = new JoystickButton(commandJoystick, 4);
-    Button passButton = new JoystickButton(commandJoystick, 5);
+    Button shooterButton = new JoystickButton(commandJoystick, 4);
+    Button shooterLowerButton = new JoystickButton(commandJoystick, 5);
+    Button passButton = new JoystickButton(commandJoystick, 2);
     Button turnButton = new JoystickButton(rightJoystick, 2);
+    Button shooterReset = new JoystickButton(commandJoystick, 8);
 
     public OI() {
         driveHighButton.whenReleased(new SetDriveHighGear());
         driveLowButton.whenReleased(new SetDriveLowGear());
         feederSolenoidButton.whenReleased(new ToggleFeederSolenoid());
         feederButton.whenReleased(new ToggleFeeder());
-        shootButton.whenReleased(new Shoot());
-        shootButton.whenReleased(new PassOut());
-        turnButton.whenReleased(new Turn());
-        turnButton.whenPressed(new Turn());
+        passButton.whileHeld(new PassOut());
+        turnButton.whileHeld(new Turn());
+        shooterButton.whileHeld(new RaiseShooter());
+        shooterLowerButton.whileHeld(new ResetShooter());
+        shooterReset.whileHeld(new ShooterAimForReset());
     }
 }

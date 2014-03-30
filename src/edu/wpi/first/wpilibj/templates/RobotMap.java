@@ -32,7 +32,9 @@ public class RobotMap {
 
     public static final int encoderPortsL[] = {3, 4};
     public static final int encoderPortsR[] = {1, 2};
-    public static final int shooterEncoderPortsL[] = {9, 10};
+    public static final int shooterEncoderPortsL[] = {6, 9};
     public static final int shooterEncoderPortsR[] = {7, 8};
     
+    public static final int shooterLowSwitch = 10;
+    public static final int shooterHighSwitch = 11;
 }

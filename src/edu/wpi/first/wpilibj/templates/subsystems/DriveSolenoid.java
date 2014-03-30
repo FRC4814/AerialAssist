@@ -3,13 +3,13 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 public class DriveSolenoid extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     DoubleSolenoid solenoid;
-    boolean highGear = true;
 
     public DriveSolenoid() {
         solenoid = new DoubleSolenoid(RobotMap.driveSolenoidPorts[0], RobotMap.driveSolenoidPorts[1]);
@@ -18,12 +18,12 @@ public class DriveSolenoid extends Subsystem {
 
     public void setLow() {
         solenoid.set(DoubleSolenoid.Value.kForward);
-        highGear = false;
+        CommandBase.driveTrain.highGear = false;
     }
 
     public void setHigh() {
         solenoid.set(DoubleSolenoid.Value.kReverse);
-        highGear = true;
+        CommandBase.driveTrain.highGear = true;
     }
 
     public void toggle() {

@@ -22,8 +22,8 @@ public class Auto extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         //addParallel(new StartFeeder());
-        addParallel(new DriveForward(1.0, CommandBase.driveTrain.left));
-        addSequential(new DriveForward(1.0, CommandBase.driveTrain.right));
+        addParallel(new DriveForward(100, CommandBase.driveTrain.left));
+        addSequential(new DriveForward(100, CommandBase.driveTrain.right));
         /*addSequential(new Wait(1.0));
         addParallel(new StopFeeder());
         addParallel(new DriveForward(-1.0, CommandBase.driveTrain.left));

@@ -9,6 +9,7 @@ public abstract class ScalableSubsystem extends Subsystem {
     public double rightScale = 1d;
     public double error;
     
+    
     public SpeedControllerPID left;
     public SpeedControllerPID right;
     // Put methods for controlling this subsystem
