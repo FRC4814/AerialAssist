@@ -1,6 +1,7 @@
-package edu.wpi.first.wpilibj.templates.commands;
+package edu.wpi.first.wpilibj.templates.autoCommands;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.subsystems.SpeedControllerPID;
 
 
@@ -9,7 +10,7 @@ public class DriveForward extends CommandBase {
     double goal;
     SpeedControllerPID a;
     
-    public DriveForward(double dist, SpeedControllerPID a) {
+    public DriveForward(int dist, SpeedControllerPID a) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         this.a = a;

@@ -3,44 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/TurnToFace.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/Shooter.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/CommandBase.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/ToggleFeederSolenoid.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/PassOut.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/Drive.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/Feeder.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/DriveTrain.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/tools/Attack3Joystick.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/ToggleDriveSolenoid.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/FeederSolenoid.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/UpdateSDB.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/ReverseFeeder.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/RobotMap.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/Turn.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/SetDriveLowGear.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/SpeedControllerPID.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/DriveSolenoid.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/ToggleFeeder.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/DriveForward.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/tools/ScalableSubsystem.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/SetDriveHighGear.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/RaspberryPi.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/RaiseShooter.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/EncodersReset.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/Shoot.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/ManageFeeder.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/Wait.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/StraightifyDrive.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/ResetShooter.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/tools/CustMath.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/subsystems/PurpleCompressor.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/tools/DebugValue.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/RobotTemplate.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/Auto.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/EqualizeEncoders.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/OI.java</file>
-            <file>file:/C:/Documents%20and%20Settings/Patrick/My%20Documents/NetBeansProjects/Antoinne/src/edu/wpi/first/wpilibj/templates/commands/DriveFor.java</file>
+            <file>file:/C:/Users/Alibero/Desktop/Java/AerialAssist/src/edu/wpi/first/wpilibj/templates/OI.java</file>
+            <file>file:/C:/Users/Alibero/Desktop/Java/AerialAssist/src/edu/wpi/first/wpilibj/templates/autoCommands/TwoBall.java</file>
+            <file>file:/C:/Users/Alibero/Desktop/Java/AerialAssist/src/edu/wpi/first/wpilibj/templates/commands/ToggleFeederSolenoid.java</file>
+            <file>file:/C:/Users/Alibero/Desktop/Java/AerialAssist/src/edu/wpi/first/wpilibj/templates/RobotTemplate.java</file>
+            <file>file:/C:/Users/Alibero/Desktop/Java/AerialAssist/src/edu/wpi/first/wpilibj/templates/commands/ToggleDriveSolenoid.java</file>
         </group>
     </open-files>
 </project-private>

@@ -51,7 +51,6 @@ public abstract class CommandBase extends Command {
         SmartDashboard.putData("Toggle Feeder", new ToggleFeeder());
         SmartDashboard.putData("Manage Feeder", new ManageFeeder());
         SmartDashboard.putData("Reverse Feeder", new ReverseFeeder());
-        SmartDashboard.putData("Auto", new Auto());
         SmartDashboard.putBoolean("ShooterIsIn", true);
         SmartDashboard.putData("EncodersReset", new EncodersReset());
         SmartDashboard.putNumber("LeftEncoder", driveTrain.left.getD());

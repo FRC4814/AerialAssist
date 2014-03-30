@@ -1,10 +1,19 @@
-package edu.wpi.first.wpilibj.templates.commands;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.wpi.first.wpilibj.templates.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class Auto extends CommandGroup {
-
-    public Auto() {
+/**
+ *
+ * @author Alibero
+ */
+public class DoNothing extends CommandGroup {
+    
+    public DoNothing() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -15,18 +24,10 @@ public class Auto extends CommandGroup {
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
-
         // A command group will require all of the subsystems that each member
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        //addParallel(new StartFeeder());
-        addParallel(new DriveForward(100, CommandBase.driveTrain.left));
-        addSequential(new DriveForward(100, CommandBase.driveTrain.right));
-        /*addSequential(new Wait(1.0));
-        addParallel(new StopFeeder());
-        addParallel(new DriveForward(-1.0, CommandBase.driveTrain.left));
-        addSequential(new DriveForward(-1.0, CommandBase.driveTrain.right));*/
     }
 }

@@ -1,11 +1,17 @@
-package edu.wpi.first.wpilibj.templates.commands;
+package edu.wpi.first.wpilibj.templates.autoCommands;
+
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 
-public class Wait extends CommandBase {
+public class DriveFor extends CommandBase {
 
-    public Wait(double time) {
+    double direction;
+    
+    public DriveFor(double direction, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(driveTrain);
+        this.direction = direction;
         setTimeout(time);
     }
 
@@ -15,6 +21,7 @@ public class Wait extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        driveTrain.drive(direction, direction);
     }
 
     // Make this return true when this Command no longer needs to run execute()

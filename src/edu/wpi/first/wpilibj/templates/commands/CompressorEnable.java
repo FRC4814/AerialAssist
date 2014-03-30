@@ -1,30 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wpi.first.wpilibj.templates.commands;
 
-
-public class CompressorManager extends CommandBase {
-
-    public CompressorManager() {
+/**
+ *
+ * @author Alibero
+ */
+public class CompressorEnable extends CommandBase {
+    
+    public CompressorEnable() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis
-        requires(compressor);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        compressor.enabled = true;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(compressor.isFull() || !compressor.enabled) {
-            compressor.off();
-        } else {
-            compressor.on();
-        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

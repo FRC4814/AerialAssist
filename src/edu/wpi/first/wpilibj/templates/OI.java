@@ -3,15 +3,14 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.templates.commands.PassOut;
-import edu.wpi.first.wpilibj.templates.commands.SetDriveHighGear;
-import edu.wpi.first.wpilibj.templates.commands.SetDriveLowGear;
+import edu.wpi.first.wpilibj.templates.commands.RaiseShooter;
+import edu.wpi.first.wpilibj.templates.commands.ResetShooter;
+import edu.wpi.first.wpilibj.templates.commands.ShooterAimForReset;
+import edu.wpi.first.wpilibj.templates.commands.ToggleDriveSolenoid;
 import edu.wpi.first.wpilibj.templates.commands.ToggleFeeder;
 import edu.wpi.first.wpilibj.templates.commands.ToggleFeederSolenoid;
 import edu.wpi.first.wpilibj.templates.commands.Turn;
 import edu.wpi.first.wpilibj.tools.Attack3Joystick;
-import edu.wpi.first.wpilibj.templates.commands.RaiseShooter;
-import edu.wpi.first.wpilibj.templates.commands.ResetShooter;
-import edu.wpi.first.wpilibj.templates.commands.ShooterAimForReset;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -47,8 +46,7 @@ public class OI {
     public Attack3Joystick leftJoystick = new Attack3Joystick(RobotMap.leftJoystickPort);
     public Attack3Joystick rightJoystick = new Attack3Joystick(RobotMap.rightJoystickPort);
     public Attack3Joystick commandJoystick = new Attack3Joystick(RobotMap.commandJoystickPort);
-    Button driveHighButton = new JoystickButton(rightJoystick, 1);
-    Button driveLowButton = new JoystickButton(leftJoystick, 1);
+    Button driveSolenoidButton = new JoystickButton(leftJoystick, 1);
     Button feederSolenoidButton = new JoystickButton(commandJoystick, 3);
     Button feederButton = new JoystickButton(commandJoystick, 1);
     Button shooterButton = new JoystickButton(commandJoystick, 4);
@@ -58,8 +56,7 @@ public class OI {
     Button shooterReset = new JoystickButton(commandJoystick, 8);
 
     public OI() {
-        driveHighButton.whenReleased(new SetDriveHighGear());
-        driveLowButton.whenReleased(new SetDriveLowGear());
+        driveSolenoidButton.whenReleased(new ToggleDriveSolenoid());
         feederSolenoidButton.whenReleased(new ToggleFeederSolenoid());
         feederButton.whenReleased(new ToggleFeeder());
         passButton.whileHeld(new PassOut());

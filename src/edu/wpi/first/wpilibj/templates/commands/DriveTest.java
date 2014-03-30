@@ -1,5 +1,6 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.autoCommands.DriveFor;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class DriveTest extends CommandGroup {

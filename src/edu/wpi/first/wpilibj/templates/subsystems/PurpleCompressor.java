@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.templates.commands.CompressorManager;
 public class PurpleCompressor extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public boolean enabled = true;
 
     Relay compressor;
     DigitalInput pressureSwitch;

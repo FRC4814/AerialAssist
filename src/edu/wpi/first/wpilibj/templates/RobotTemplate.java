@@ -11,7 +11,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.templates.commands.Auto;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.templates.autoCommands.DoNothing;
+import edu.wpi.first.wpilibj.templates.autoCommands.OneBall;
+import edu.wpi.first.wpilibj.templates.autoCommands.TwoBall;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.UpdateSDB;
 
@@ -25,7 +28,8 @@ import edu.wpi.first.wpilibj.templates.commands.UpdateSDB;
 public class RobotTemplate extends IterativeRobot {
 
     CommandGroup autonomousCommand;
-    Command teleopCommand;
+    SendableChooser autoChooser;
+    Command updateCommand = new UpdateSDB();
     
     /**
      * This function is run when the robot is first started up and should be
@@ -36,17 +40,21 @@ public class RobotTemplate extends IterativeRobot {
         // Initialize all subsystems
         
         CommandBase.init();
+        
+        autoChooser.addDefault("Do Nothing", new DoNothing());
+        autoChooser.addObject("One Ball", new OneBall());
+        autoChooser.addObject("Two Ball", new TwoBall());
         /*try {
             // schedule the autonomous command (example)
             CommandBase.raspberryPi.connect();
         } catch (IOException ex) {
             ex.printStackTrace();
         }*/
-        autonomousCommand = new Auto();
     }
 
     public void autonomousInit() {
         //CommandBase.raspberryPi.start();
+        autonomousCommand = (CommandGroup)autoChooser.getSelected();
         autonomousCommand.start();
     }
 
@@ -59,8 +67,7 @@ public class RobotTemplate extends IterativeRobot {
 
     public void teleopInit() {
         autonomousCommand.cancel();
-        teleopCommand = new UpdateSDB();
-        teleopCommand.start();
+        updateCommand.start();
         //CommandBase.raspberryPi.stop();
     }
 
