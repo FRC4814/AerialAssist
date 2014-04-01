@@ -15,4 +15,13 @@ public class CustMath {
         }
         return 0;
     }
+    
+    public static double cap(double a) {
+        if(a > 1.0) {
+            return 1.0;
+        } else if (a < -1.0) {
+            return -1.0;
+        }
+        return a;
+    }
 }

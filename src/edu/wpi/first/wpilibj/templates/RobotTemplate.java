@@ -30,7 +30,8 @@ public class RobotTemplate extends IterativeRobot {
     CommandGroup autonomousCommand;
     SendableChooser autoChooser;
     Command updateCommand = new UpdateSDB();
-    
+    boolean autoStarted = false;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -38,24 +39,26 @@ public class RobotTemplate extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         // Initialize all subsystems
-        
+
         CommandBase.init();
-        
+
+        autoChooser = new SendableChooser();
         autoChooser.addDefault("Do Nothing", new DoNothing());
         autoChooser.addObject("One Ball", new OneBall());
         autoChooser.addObject("Two Ball", new TwoBall());
         /*try {
-            // schedule the autonomous command (example)
-            CommandBase.raspberryPi.connect();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }*/
+         // schedule the autonomous command (example)
+         CommandBase.raspberryPi.connect();
+         } catch (IOException ex) {
+         ex.printStackTrace();
+         }*/
     }
 
     public void autonomousInit() {
         //CommandBase.raspberryPi.start();
-        autonomousCommand = (CommandGroup)autoChooser.getSelected();
+        autonomousCommand = (CommandGroup) autoChooser.getSelected();
         autonomousCommand.start();
+        autoStarted = true;
     }
 
     /**
@@ -66,7 +69,9 @@ public class RobotTemplate extends IterativeRobot {
     }
 
     public void teleopInit() {
-        autonomousCommand.cancel();
+        if (autoStarted) {
+            autonomousCommand.cancel();
+        }
         updateCommand.start();
         //CommandBase.raspberryPi.stop();
     }

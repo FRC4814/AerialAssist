@@ -44,7 +44,7 @@ public class SpeedControllerPID extends PIDSubsystem {
         driveMotors[1].set(speed);
     }
 
-    public double getD() {
+    public int getD() {
         return -enc.get() * direction;
     }
 
