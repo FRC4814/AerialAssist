@@ -6,8 +6,6 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.commands.ShooterAimForReset;
-import edu.wpi.first.wpilibj.tools.DebugValue;
 import edu.wpi.first.wpilibj.tools.PurpleInput;
 import edu.wpi.first.wpilibj.tools.ScalableSubsystem;
 
@@ -29,8 +27,8 @@ public class Shooter extends ScalableSubsystem {
 
     public boolean forward = true;
 
-    public DebugValue height = new DebugValue("ShooterHeight", 345);
-    DebugValue rate = new DebugValue("ShooterRate", 100);
+    public int height;
+    int vel;
 
     double leftV = 0.0;
     double rightV = 0.0;
@@ -100,18 +98,22 @@ public class Shooter extends ScalableSubsystem {
     public void limitVelocity() {
         double leftR = left.enc.getRate();
         double rightR = right.enc.getRate();
-        double tar = rate.fetch();
-        if (leftR > tar) {
+        if (leftR > vel) {
             leftV -= INC;
         }
-        if (rightR > tar) {
+        if (rightR > vel) {
             rightV -= INC;
-        } else if (leftR < tar && rightR < tar && leftV < GOAL_V && rightV < GOAL_V) {
+        } else if (leftR < vel && rightR < vel && leftV < GOAL_V && rightV < GOAL_V) {
             leftV += INC * 10;
             rightV += INC * 10;
         }
     }
 
     protected void initDefaultCommand() {
+    }
+
+    public void update(int tarHeight, int tarVel) {
+        height = tarHeight;
+        vel = tarVel;
     }
 }

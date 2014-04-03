@@ -15,11 +15,11 @@ public class FeederSolenoid extends Subsystem {
         solenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
-    private void setOut() {
+    public void setOut() {
         solenoid.set(DoubleSolenoid.Value.kForward);
     }
 
-    private void setIn() {
+    public void setIn() {
         solenoid.set(DoubleSolenoid.Value.kReverse);
     }
 

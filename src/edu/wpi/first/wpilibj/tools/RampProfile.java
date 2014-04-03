@@ -5,19 +5,23 @@ public class RampProfile {
     int width;
     int rampTime;
     int rampDown;
-    
-    public RampProfile (int width, int rampTime) {
+    int direction = 1;
+
+    public RampProfile(int width, int rampTime) {
         this.width = width;
         this.rampTime = rampTime;
         rampDown = width - rampTime;
-    }
-    
-    public double getV(int current) {
-        if(current <= rampTime) {
-            return current/rampTime;
-        } else if (current >= rampDown) {
-            return (width - current)/rampTime;
+        if (width < 0) {
+            direction = -1;
         }
-        return 1.0;
+    }
+
+    public double getV(int current) {
+        if (current >= width) {
+            return 0.0;
+        } else if (current >= rampDown) {
+            return Math.max(((double) (width - current)) / rampTime, 0.15) * direction;
+        }
+        return (double) direction;
     }
 }

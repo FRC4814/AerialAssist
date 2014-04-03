@@ -1,49 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wpi.first.wpilibj.templates.commands;
 
-public class ResetShooter extends CommandBase {
+/**
+ *
+ * @author Alibero
+ */
+public class HoldShooter extends CommandBase {
 
-    public ResetShooter() {
+    double holdVel = 0.4;
+    int accuracy = 3;
+    int pos;
+
+    public HoldShooter(int position) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
-    }
-
-    ResetShooter(int i, int dynoVel) {
-        
+        pos = position;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.resetV();
-        shooter.forward = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (!feeder.isIn)
-        {
-            shooter.manageDown();
-            shooter.equalizeVelocity();
-            shooter.limitVelocity();
+        if (shooter.left.getD() - accuracy > pos) {
+            shooter.set(-holdVel);
+        } else if (shooter.left.getD() + accuracy < pos) {
+            shooter.set(holdVel);
+        } else {
+            shooter.set(0.0);
         }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (shooter.bottomSwitch.get() || shooter.left.getD() <= 5 || shooter.right.getD() <= 5 || feeder.isIn);
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        shooter.set(0.0);
-        if(shooter.bottomSwitch.get()) {
-            shooter.reset();
-        }
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        shooter.set(0.0);
     }
 }

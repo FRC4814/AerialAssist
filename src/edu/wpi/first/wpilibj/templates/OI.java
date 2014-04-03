@@ -2,6 +2,7 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.PassOut;
 import edu.wpi.first.wpilibj.templates.commands.RaiseShooter;
 import edu.wpi.first.wpilibj.templates.commands.ResetShooter;

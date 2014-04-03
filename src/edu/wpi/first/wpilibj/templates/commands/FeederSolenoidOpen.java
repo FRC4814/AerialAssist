@@ -1,49 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wpi.first.wpilibj.templates.commands;
 
-public class ResetShooter extends CommandBase {
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-    public ResetShooter() {
+/**
+ *
+ * @author Alibero
+ */
+public class FeederSolenoidOpen extends CommandBase {
+
+    public FeederSolenoidOpen() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(shooter);
-    }
-
-    ResetShooter(int i, int dynoVel) {
-        
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.resetV();
-        shooter.forward = false;
+        if (feeder.isIn) {
+            feederSolenoid.setOut();
+            feeder.isIn = true;
+            setTimeout(0.5);
+        } else {
+            setTimeout(0.0);
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (!feeder.isIn)
-        {
-            shooter.manageDown();
-            shooter.equalizeVelocity();
-            shooter.limitVelocity();
-        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (shooter.bottomSwitch.get() || shooter.left.getD() <= 5 || shooter.right.getD() <= 5 || feeder.isIn);
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        shooter.set(0.0);
-        if(shooter.bottomSwitch.get()) {
-            shooter.reset();
+        if (!feederSolenoid.isSetIn()) {
+            feeder.isIn = false;
         }
+        SmartDashboard.putBoolean("ShooterIsIn", feeder.isIn);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        shooter.set(0.0);
     }
 }

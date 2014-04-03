@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.FeederSolenoid;
 import edu.wpi.first.wpilibj.templates.subsystems.PurpleCompressor;
 import edu.wpi.first.wpilibj.templates.subsystems.RaspberryPi;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
+import edu.wpi.first.wpilibj.tools.DebugValue;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -30,7 +31,8 @@ public abstract class CommandBase extends Command {
     public static DriveSolenoid driveSolenoid;
     public static FeederSolenoid feederSolenoid;
     public static PurpleCompressor compressor;
-    public boolean stopraisingshooter=false;
+    public static DebugValue height = new DebugValue("ShooterHeight", 345);
+    public static DebugValue rate = new DebugValue("ShooterRate", 100);
     
 
     public static void init() {
